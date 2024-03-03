@@ -1,0 +1,80 @@
+$colors: (
+  red,
+  blue,
+  green,
+  yellow,
+  orange,
+  purple,
+  cyan,
+  magenta,
+  teal,
+  pink,
+  lime,
+  brown,
+  navy,
+  indigo,
+  maroon,
+  olive,
+  turquoise,
+  violet,
+  gold,
+  silver
+);
+
+@mixin adjustCards() {
+  $q: 1;
+
+  $startHeight: 45rem;
+  $startWidth: calc(45rem / 1.4);
+  $children: 12;
+  $decreaseScaleAmount: 0.95;
+
+  z-index: 1;
+  transform: translateX(-100%); //Start all card things in the center
+  position: absolute;
+
+  @for $i from 1 through $children {
+    //I need to select 2 adjacent children at a time
+    //I need to apply the same scaling to them
+    //I need to move them in different directions.
+    $child1: 2 * $i - 1;
+    $child2: 2 * $i;
+
+    @for $j from 1 through 1 {
+      //height: $startHeight * $decreaseScaleAmount;
+      //width: $startWidth * $decreaseScaleAmount;
+      &:nth-child(#{$q}) &:nth-child(#{$q + 1}) {
+        @debug "q: " $q;
+        height: $startHeight * $decreaseScaleAmount;
+        width: $startWidth * $decreaseScaleAmount;
+      }
+    }
+    @debug ADJUSTING VALUES;
+    //here the values get changed so that in the next loop the changes are adjusted.
+    $decreaseScaleAmount: $decreaseScaleAmount * 0.95;
+    $q: $q + 2;
+  }
+}
+
+.container {
+  .cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .card-display {
+      height: 45rem;
+      width: calc(45rem / 1.4);
+      border: 1px solid rgb(255, 0, 0);
+      z-index: 100;
+    }
+    .background-cards {
+      display: flex;
+      align-items: center;
+      .background-card {
+        border: 0.2rem solid white;
+        position: absolute;
+        @include adjustCards();
+      }
+    }
+  }
+}
