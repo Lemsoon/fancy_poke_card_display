@@ -26,33 +26,29 @@ $colors: (
 
   $startHeight: 45rem;
   $startWidth: calc(45rem / 1.4);
+  $decreaseAmount: 1;
+
   $children: 12;
-  $decreaseScaleAmount: 0.95;
 
   z-index: 1;
   transform: translateX(-100%); //Start all card things in the center
   position: absolute;
 
   @for $i from 1 through $children {
-    //I need to select 2 adjacent children at a time
+    //I need to select 2 pararell children at a time
     //I need to apply the same scaling to them
-    //I need to move them in different directions.
-    $child1: 2 * $i - 1;
-    $child2: 2 * $i;
+    //I need to move them in opposite directions.
 
-    @for $j from 1 through 1 {
-      //height: $startHeight * $decreaseScaleAmount;
-      //width: $startWidth * $decreaseScaleAmount;
-      &:nth-child(#{$q}) &:nth-child(#{$q + 1}) {
-        @debug "q: " $q;
-        height: $startHeight * $decreaseScaleAmount;
-        width: $startWidth * $decreaseScaleAmount;
-      }
+    &:nth-child(#{$i}) {
+      @debug $i;
+      $startHeight: $startHeight * $decreaseAmount;
+      $startWidth: $startWidth * $decreaseAmount;
     }
-    @debug ADJUSTING VALUES;
-    //here the values get changed so that in the next loop the changes are adjusted.
-    $decreaseScaleAmount: $decreaseScaleAmount * 0.95;
-    $q: $q + 2;
+    //only adjust on every other i+1
+    @if $i%2==0 {
+      @debug ADJUSTING VALUES; //here the values get changed so that in the next loop the changes are adjusted.
+      $decreaseAmount: $decreaseAmount * 0.95;
+    }
   }
 }
 
@@ -71,8 +67,10 @@ $colors: (
       display: flex;
       align-items: center;
       .background-card {
-        border: 0.2rem solid white;
+        border: 0.1rem solid white;
         position: absolute;
+        height: 45rem;
+        width: calc(45rem / 1.4);
         @include adjustCards();
       }
     }
