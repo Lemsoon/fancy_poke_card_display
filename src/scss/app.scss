@@ -1,6 +1,12 @@
 $cardShadow: black 0rem 0rem 20rem 5rem;
 
 .container {
+  background-color: rgba(0, 0, 0, 0.596);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   .cards {
     display: flex;
     align-items: center;
@@ -13,7 +19,6 @@ $cardShadow: black 0rem 0rem 20rem 5rem;
       box-shadow: $cardShadow;
       border-radius: 1rem;
 
-      // background-image: url("../images/pika.png");
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center; /* Aligns the background image to the center of the container */

@@ -32,10 +32,14 @@ export const MainCard = () => {
     };
     getThisPokeInfo();
   }, [pokemonLinks]);
-  //   console.log(pokemonInfo);
+
+  const flipCard = () => {};
+
+  const card = document.querySelector("#current_card");
+  card?.addEventListener("click", flipCard);
 
   return (
-    <div className="card-front">
+    <div className="card-front" id="current_card">
       <header className="card-header">
         <h1>{pokemonInfo?.species.name}</h1>
         <h2>weight: {pokemonInfo?.weight}</h2>

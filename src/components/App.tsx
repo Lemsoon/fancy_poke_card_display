@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="container">
       <div className="cards">
-        <div className="card-display" id="current-card">
+        <div className="card-display">
           <MainCard />
         </div>
         <BackgroundCards />

@@ -48,12 +48,15 @@ $cardShadow: black 0rem 0rem 20rem 5rem;
       color: green;
       background-color: red;
     }
+    .poke-image {
+      width: 100%;
+    }
   }
   .background-card:hover {
     margin-bottom: 8%;
   }
-  .background-card:active {
-    transform: rotateY(3.142rad);
-    z-index: 200;
-  }
+  // .background-card:active {
+  //   transform: rotateY(3.142rad);
+  //   z-index: 200;
+  // }
 }
