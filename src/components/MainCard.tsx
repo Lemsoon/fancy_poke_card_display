@@ -34,7 +34,7 @@ export const MainCard = () => {
   }, [pokemonLinks]);
 
   return (
-    <div className="pokemon-card">
+    <div className="pokemon-card" onClick={() => console.log("clicked")}>
       <div className="pokemon-card-inner">
         <div className="pokemon-card-front">
           <header>

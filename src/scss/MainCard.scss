@@ -18,6 +18,12 @@
       backface-visibility: hidden;
       background-color: gold;
       border-radius: 1rem;
+
+      header {
+        h1 {
+          font-size: 3vh;
+        }
+      }
       .pokemon-image {
         margin-top: 1rem;
         width: 75%;
