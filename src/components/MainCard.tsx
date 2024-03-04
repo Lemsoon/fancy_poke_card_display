@@ -33,20 +33,20 @@ export const MainCard = () => {
     getThisPokeInfo();
   }, [pokemonLinks]);
 
-  const flipCard = () => {};
-
-  const card = document.querySelector("#current_card");
-  card?.addEventListener("click", flipCard);
-
   return (
-    <div className="card-front" id="current_card">
-      <header className="card-header">
-        <h1>{pokemonInfo?.species.name}</h1>
-        <h2>weight: {pokemonInfo?.weight}</h2>
-      </header>
-      <main>
-        <ImageFrame pokemonImage={pokemonInfo?.sprites.front_default} pokemon={pokemonInfo?.species.name} />
-      </main>
+    <div className="pokemon-card">
+      <div className="pokemon-card-inner">
+        <div className="pokemon-card-front">
+          <header>
+            <h1>{pokemonInfo?.species.name}</h1>
+            <h6>{pokemonInfo?.weight}kg</h6>
+          </header>
+          <img src={pokemonInfo?.sprites.front_default} alt="" className="pokemon-image" />
+        </div>
+        <div className="pokemon-card-back">
+          <img src="../src/images/pokemon_card_back.png" alt="" className="card-back" />
+        </div>
+      </div>
     </div>
   );
 };
