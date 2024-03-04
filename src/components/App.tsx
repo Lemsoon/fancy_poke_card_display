@@ -1,26 +1,15 @@
-import { useState } from "react";
+import { BackgroundCards } from "./BackgroundCards";
 import "../scss/app.scss";
+import { MainCard } from "./MainCard";
 
 function App() {
   return (
     <div className="container">
       <div className="cards">
-        <div className="card-display"></div>
-
-        <div className="background-cards">
-          <div className="background-card"></div>
-          <div className="background-card"></div>
-          <div className="background-card"></div>
-          <div className="background-card"></div>
-          <div className="background-card"></div>
-          <div className="background-card"></div>
-          <div className="background-card"></div>
-          <div className="background-card"></div>
-          <div className="background-card"></div>
-          <div className="background-card"></div>
-          <div className="background-card"></div>
-          <div className="background-card"></div>
+        <div className="card-display" id="current-card">
+          <MainCard />
         </div>
+        <BackgroundCards />
       </div>
     </div>
   );

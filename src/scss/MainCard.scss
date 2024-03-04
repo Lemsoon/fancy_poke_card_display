@@ -1,0 +1,28 @@
+.card-front {
+  background-color: gold;
+  height: 100%;
+  border-radius: 1rem;
+  padding: 0.8rem;
+  padding-top: 0.2rem;
+  transition: 0.2s;
+
+  .card-header {
+    display: flex;
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      padding-top: 1rem;
+      font-weight: 100;
+    }
+  }
+  main {
+    height: 90%;
+    .pokemonImage {
+      width: 10rem;
+    }
+  }
+}
+.card-front:hover {
+  transform: translateY(-10%);
+}

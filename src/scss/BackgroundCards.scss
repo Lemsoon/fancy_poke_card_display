@@ -1,0 +1,59 @@
+$cardShadow: black 0rem 0rem 20rem 5rem;
+
+@mixin adjustCards() {
+  $startHeight: 45vh;
+  $startWidth: calc(45vh / 1.4);
+  $decreaseAmount: 1;
+  $leftAmount: 66vw;
+  $rightAmount: 34vw;
+  $children: 12;
+  $z-index: 100;
+
+  @for $i from 1 through $children {
+    &:nth-child(#{$i}) {
+      height: $startHeight * $decreaseAmount;
+      width: $startWidth * $decreaseAmount;
+      z-index: $z-index;
+
+      @if $i % 2 == 0 {
+        left: $leftAmount;
+      } @else {
+        right: $rightAmount;
+      }
+    }
+
+    @if $i % 2 == 0 {
+      $decreaseAmount: $decreaseAmount * 0.95;
+      $leftAmount: $leftAmount + 5vw;
+      $rightAmount: $rightAmount + 6vw;
+      $z-index: $z-index - 1;
+    }
+  }
+}
+
+.background-cards {
+  display: flex;
+  align-items: center;
+  .background-card {
+    transition: 0.2s;
+    transform: translateX(-100%);
+    position: absolute;
+    background-image: url("../images/pokemon_card_back.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: $cardShadow;
+
+    @include adjustCards();
+    .card-backside {
+      color: green;
+      background-color: red;
+    }
+  }
+  .background-card:hover {
+    margin-bottom: 8%;
+  }
+  .background-card:active {
+    transform: rotateY(3.142rad);
+    z-index: 200;
+  }
+}
