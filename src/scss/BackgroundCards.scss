@@ -4,8 +4,8 @@ $cardShadow: black 0rem 0rem 20rem 5rem;
   $startHeight: 45vh;
   $startWidth: calc(45vh / 1.4);
   $decreaseAmount: 1;
-  $leftAmount: 66vw;
-  $rightAmount: 50vw;
+  $leftAmount: 50vw;
+  $rightAmount: 34vw;
   $children: 12;
   $z-index: 100;
 
@@ -24,7 +24,7 @@ $cardShadow: black 0rem 0rem 20rem 5rem;
 
     @if $i % 2 == 0 {
       $decreaseAmount: $decreaseAmount * 0.95;
-      $leftAmount: $leftAmount + 5vw;
+      $leftAmount: $leftAmount + 6vw;
       $rightAmount: $rightAmount - 6vw;
       $z-index: $z-index - 1;
     }
@@ -34,31 +34,32 @@ $cardShadow: black 0rem 0rem 20rem 5rem;
 .background-cards {
   display: flex;
   align-items: center;
-  left: 10%;
   .background-card {
     width: 100%;
     height: 100%;
     position: absolute;
-    transition: 0.2s ease;
+    transition: 0.4s ease;
 
     @include adjustCards();
     .background-card-inner {
-      transition: 1s ease;
+      transition: 0.4s ease;
       position: relative;
       width: 100%;
       height: 100%;
       text-align: center;
       transform-style: preserve-3d;
-      .background-card-front {
+      .background-card-back {
         position: absolute;
         width: 100%;
         height: 100%;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        background-color: gold;
         border-radius: 1vw;
+        img {
+          width: 100%;
+        }
       }
-      .background-card-back {
+      .background-card-front {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -66,6 +67,9 @@ $cardShadow: black 0rem 0rem 20rem 5rem;
         backface-visibility: hidden;
         color: white;
         transform: rotateY(180deg);
+        background-color: rgb(130, 7, 164);
+        border-radius: 1vw;
+
         img {
           height: 52vh;
           width: calc(52vh / 1.4);
@@ -76,7 +80,12 @@ $cardShadow: black 0rem 0rem 20rem 5rem;
   .background-card:hover {
     transform: translateY(-10%);
   }
-  .background-card:active .background-card-inner {
+  .background-card:active {
+    z-index: 205;
+    left: 40.25%;
+    top: 25%;
+  }
+  .background-card-inner:active {
     height: 52vh;
     width: calc(52vh / 1.4);
     transform: rotateY(180deg);
