@@ -4,7 +4,7 @@ import { ImageFrame } from "./ImageFrame";
 import "../scss/MainCard.scss";
 import axios from "axios";
 
-export const MainCard = () => {
+export const useMainCard = () => {
   const [pokemonLinks, setPokemonLinks] = useState<string[]>();
   const [pokemonInfo, setPokemonInfo] = useState<MainInfo>();
 
@@ -33,20 +33,23 @@ export const MainCard = () => {
     getThisPokeInfo();
   }, [pokemonLinks]);
 
-  return (
-    <div className="pokemon-card" onClick={() => console.log("clicked")}>
-      <div className="pokemon-card-inner">
-        <div className="pokemon-card-front">
-          <header>
-            <h1>{pokemonInfo?.species.name}</h1>
-            <h6>{pokemonInfo?.weight}kg</h6>
-          </header>
-          <img src={pokemonInfo?.sprites.front_default} alt="" className="pokemon-image" />
-        </div>
-        <div className="pokemon-card-back">
-          <img src="../src/images/pokemon_card_back.png" alt="" className="card-back" />
+  return {
+    pokemonInfo,
+    render: (
+      <div className="pokemon-card" onClick={() => console.log("clicked")}>
+        <div className="pokemon-card-inner">
+          <div className="pokemon-card-front">
+            <header>
+              <h1>{pokemonInfo?.species.name}</h1>
+              <h6>{pokemonInfo?.weight}kg</h6>
+            </header>
+            <img src={pokemonInfo?.sprites.front_default} alt="" className="pokemon-image" />
+          </div>
+          <div className="pokemon-card-back">
+            <img src="../src/images/pokemon_card_back.png" alt="" className="card-back" />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    ),
+  };
 };

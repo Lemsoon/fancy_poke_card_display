@@ -14,3 +14,9 @@ export interface InitialInfo {
     url: string;
   }[];
 }
+
+export interface BackgroundCardsInfo {
+  pokemonInfo?: {
+    weight: number;
+  };
+}
