@@ -34,17 +34,28 @@ export const MainCard = () => {
   }, [pokemonLinks]);
 
   return (
+<<<<<<< HEAD
     <div className="pokemon-card">
+=======
+    <div className="pokemon-card" onClick={() => console.log("clicked")}>
+>>>>>>> 030780c3695dfda7ee68e38f922c6a7d60b3f20d
       <div className="pokemon-card-inner">
         <div className="pokemon-card-front">
           <header>
             <h1>{pokemonInfo?.species.name}</h1>
             <h6>{pokemonInfo?.weight}kg</h6>
           </header>
+<<<<<<< HEAD
           <img src={pokemonInfo?.sprites.front_default} alt={pokemonInfo?.species.name} className="pokemon-image" />
         </div>
         <div className="pokemon-card-back">
           <img src="../src/images/pokemon_card_back.png" alt="card backside" className="card-back" />
+=======
+          <img src={pokemonInfo?.sprites.front_default} alt="" className="pokemon-image" />
+        </div>
+        <div className="pokemon-card-back">
+          <img src="../src/images/pokemon_card_back.png" alt="" className="card-back" />
+>>>>>>> 030780c3695dfda7ee68e38f922c6a7d60b3f20d
         </div>
       </div>
     </div>

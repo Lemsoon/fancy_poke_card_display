@@ -9,7 +9,11 @@
     text-align: center;
     transition: transform 0.6s;
     transform-style: preserve-3d;
+<<<<<<< HEAD
     // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+=======
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+>>>>>>> 030780c3695dfda7ee68e38f922c6a7d60b3f20d
     .pokemon-card-front {
       position: absolute;
       width: 100%;
@@ -17,7 +21,11 @@
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
       background-color: gold;
+<<<<<<< HEAD
       border-radius: 1vw;
+=======
+      border-radius: 1rem;
+>>>>>>> 030780c3695dfda7ee68e38f922c6a7d60b3f20d
 
       header {
         h1 {

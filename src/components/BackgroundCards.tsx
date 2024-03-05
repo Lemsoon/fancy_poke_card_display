@@ -1,6 +1,10 @@
 import "../scss/BackgroundCards.scss";
 
 export const BackgroundCards = () => {
+  const displayFront = () => {
+    console.log("card clicked");
+  };
+
   return (
     <div className="background-cards">
       {/* <div className="background-card">
