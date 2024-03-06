@@ -1,3 +1,6 @@
+* {
+  font-family: "Roboto Slab", serif;
+}
 .pokemon-card {
   width: 100%;
   height: 100%;
@@ -10,24 +13,89 @@
     transition: transform 0.6s;
     transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
     .pokemon-card-front {
       position: absolute;
       width: 100%;
       height: 100%;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-      background-color: gold;
-      border-radius: 1rem;
 
-      header {
-        h1 {
-          font-size: 3vh;
+      //Looks \/
+      background-color: #d8f51a;
+      border: 1rem solid rgb(80, 80, 80);
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      padding-top: 0.5rem;
+      .card-header {
+        width: 100%;
+        height: 8%;
+
+        display: flex;
+        justify-content: space-between;
+        .pokemon-name {
+          text-transform: capitalize;
+          font-size: 200%;
+        }
+        .hp-display {
+          .base-hp {
+            font-size: 200%;
+          }
         }
       }
-      .pokemon-image {
-        margin-top: 1rem;
-        width: 75%;
-        border: 1px solid red;
+      .image-container {
+        margin-top: 0.3rem;
+        width: 100%;
+        height: 40%;
+        border: 0.4rem solid grey;
+        border-radius: 0.4rem;
+        .pokemon-image {
+          width: 60%;
+          height: 100%;
+        }
+      }
+      .abilities-type {
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+
+        .abilities-display {
+          display: flex;
+          flex-direction: column;
+          border: 1px solid red;
+          .abilities-title {
+            font-size: 175%;
+            font-weight: bold;
+            letter-spacing: 0.2rem;
+          }
+          .abilities-list {
+            list-style: none;
+            .ability-list-item {
+              width: 100%;
+              text-align: start;
+              text-transform: capitalize;
+            }
+          }
+        }
+        .type-display {
+          display: flex;
+          flex-direction: column;
+          .type-title {
+            font-size: 175%;
+            font-weight: bold;
+            letter-spacing: 0.2rem;
+          }
+          .type-list {
+            list-style: none;
+            .type-list-item {
+              width: 100%;
+              text-align: start;
+              text-transform: capitalize;
+            }
+          }
+        }
       }
     }
     .pokemon-card-back {

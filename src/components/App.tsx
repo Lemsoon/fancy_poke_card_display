@@ -3,14 +3,14 @@ import "../scss/app.scss";
 import { useMainCard } from "./MainCard";
 
 function App() {
-  const { render, pokemonInfo } = useMainCard();
+  const { render, extraPokemonInfo } = useMainCard();
 
   return (
     <div className="container">
       <div className="cards">
         <div className="card-display">{render}</div>
 
-        <BackgroundCards pokemonInfo={pokemonInfo} />
+        <BackgroundCards extraPokemonInfo={extraPokemonInfo} />
       </div>
     </div>
   );
