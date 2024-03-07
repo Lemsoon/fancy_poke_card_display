@@ -82,7 +82,7 @@ export const useMainCard = () => {
               <div className="type-display">
                 <p className="type-title">Type</p>
                 <ul className="type-list">
-                  {pokemonInfo?.types.map((type: { type: { name: string } }, index: nu) => {
+                  {pokemonInfo?.types.map((type: { type: { name: string } }, index: number) => {
                     return (
                       <li key={index} className="type-list-item">
                         {type.type.name}
